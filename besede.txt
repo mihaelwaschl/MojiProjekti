@@ -1,9 +1,1 @@
-avto
-hiša
-zdravnik
-ladja
-letalo
-morje
-sonce
-luna
-jupiter
+avtoa
