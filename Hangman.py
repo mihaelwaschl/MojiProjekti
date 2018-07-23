@@ -34,6 +34,7 @@ def start_game():
     word = get_word()
     guesses = []
     print('Beseda ima {} znakov, da odkriješ skrito besedo imaš {} poiskusov.'.format(len(word), len(word)+5))
+    print('Vstavljate lahko posamezne črke, ali celotno besedo.')
     for i in range(len(word)+5):
         guess = input('Vnesi črko. \n').strip().lower()
         if guess in guesses:
@@ -54,7 +55,7 @@ def start_game():
             else:
                 print('Beseda {} žal ni pravilna, poiskusi ponovno'.format(guess))
         else:
-            print('Beseda {} ni ustrezne dolžine.'.format(word))
+            print('Beseda {} ni ustrezne dolžine.'.format(guess))
     print('Konec igre, skrita beseda je {}'.format(word))
 
 

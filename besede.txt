@@ -1,1 +1,6 @@
-avtoa
+avto
+letalo
+ladja
+podmornica
+helikopter
+raketa
