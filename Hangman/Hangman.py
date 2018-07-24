@@ -31,33 +31,38 @@ def check(word, guess, guesses):
     return guessed_word
 
 def start_game():
-    word = get_word()
-    guesses = []
-    print('Beseda ima {} znakov, da odkriješ skrito besedo imaš {} poiskusov.'.format(len(word), len(word)+5))
-    print('Vstavljate lahko posamezne črke, ali celotno besedo.')
-    for i in range(len(word)+5):
-        guess = input('Vnesi črko. \n').strip().lower()
-        if guess in guesses:
-            print('Črko {} si že uporabil. Poiskusi ponovno!'.format(guess))
-        elif len(guess) == 1:
-            guesses.append(guess)
-            result = check(word, guess, guesses)
-            if result == word:
-                print('Čestitamo našli ste skrito besedo!')
-                break
+    start_new_game = True
+    while start_new_game == True:
+        word = get_word()
+        guesses = []
+        print('Beseda ima {} znakov, da odkriješ skrito besedo imaš {} poiskusov.'.format(len(word), len(word)+5))
+        print('Vstavljate lahko posamezne črke, ali celotno besedo.\n')
+        for i in range(len(word)+5):
+            guess = input('Vnesi črko. \n').strip().lower()
+            if guess in guesses:
+                print('Črko {} si že uporabil. Poiskusi ponovno!'.format(guess))
+            elif len(guess) == 1:
+                guesses.append(guess)
+                result = check(word, guess, guesses)
+                if result == word:
+                    print('Čestitamo našli ste skrito besedo!')
+                    break
+                else:
+                    print(result)
+            elif len(guess) == len(word):
+                guesses.append(guess)
+                if guess == word:
+                    print('Čestitamo našli ste skrito besedo!')
+                    break
+                else:
+                    print('Beseda {} žal ni pravilna, poiskusi ponovno'.format(guess))
             else:
-                print(result)
-        elif len(guess) == len(word):
-            guesses.append(guess)
-            if guess == word:
-                print('Čestitamo našli ste skrito besedo!')
-                break
-            else:
-                print('Beseda {} žal ni pravilna, poiskusi ponovno'.format(guess))
+                print('Beseda {} ni ustrezne dolžine.'.format(guess))
+        print('Konec igre, skrita beseda je {}\n'.format(word))
+        if input('Želite začeti novo igro? Za začetek pritisnite y, drugače pritisnite n\n') == 'y':
+            start_new_game = True
         else:
-            print('Beseda {} ni ustrezne dolžine.'.format(guess))
-    print('Konec igre, skrita beseda je {}'.format(word))
-
+            start_new_game = False
 
 start_game()
 
