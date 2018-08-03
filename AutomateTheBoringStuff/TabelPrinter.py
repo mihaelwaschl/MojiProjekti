@@ -7,7 +7,6 @@ def printTable(data):
     for x in range(len(data[0])):
         print(str(data[0][x].rjust(longest)) + str(data[1][x].rjust(longest)) + str(data[2][x].rjust(longest)))
 
-
 tableData = [['apples', 'oranges', 'cherries', 'banana'],
              ['Alice', 'Bob', 'Carol', 'David'],
              ['dogs', 'cats', 'moose', 'goose']]
